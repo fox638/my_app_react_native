@@ -3,14 +3,18 @@ import 'dotenv/config';
 
 const config: CodegenConfig = {
   schema: process.env.API_URL,
-  documents: ['src/**/*.tsx', 'src/**/*.ts'],
+  documents: ['src/**/*.gql'],
   ignoreNoDocuments: true, // for better experience with the watcher
   generates: {
-    'src/shared/api/gql/': {
-      preset: 'client',
+    './src/shared/types/gql/types.ts': {plugins: ['typescript']},
+    './src/': {
+      preset: 'near-operation-file',
       presetConfig: {
-        fragmentMasking: {unmaskFunctionName: 'getFragmentData'},
+        extension: '.generated.tsx',
+
+        baseTypesPath: './shared/types/gql/types.ts',
       },
+      plugins: ['typescript-operations', 'typescript-react-apollo'],
     },
   },
   watch: true,

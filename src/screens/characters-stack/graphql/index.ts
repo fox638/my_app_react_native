@@ -1,1 +1,1 @@
-export {CharactersQuery} from './CharactersQueryGql';
+export * from './CharactersQuery.generated';

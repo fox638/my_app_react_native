@@ -1,1 +1,1 @@
-export * from './characterCardFragment';
+export * from './characterCardFragment.generated';

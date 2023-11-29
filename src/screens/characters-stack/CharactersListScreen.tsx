@@ -1,15 +1,14 @@
 import React from 'react';
 import * as S from './CharactersListScreen.styled';
-import {useQuery} from '@apollo/client';
-import {CharactersQuery} from './graphql';
 import {CharacterCard} from '@entities/character';
+import {useGetCharactersQuery} from './graphql';
 
 interface CharactersListScreenProps {}
 
 export const CharactersListScreen: React.FC<
   CharactersListScreenProps
 > = ({}) => {
-  const {data} = useQuery(CharactersQuery);
+  const {data} = useGetCharactersQuery();
   const characters = data?.characters?.results || [];
   console.log('characters', characters);
   return (

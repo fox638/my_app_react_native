@@ -1,10 +1,10 @@
-import {CharacterCardFragment} from '@shared/api/gql/graphql';
 import React from 'react';
 
 import * as S from './CharacterCard.styled';
 import FastImage from 'react-native-fast-image';
 import {Typography} from '@shared/ui/Typography';
 import format from 'date-fns/format';
+import {CharacterCardFragment} from '../../graphql';
 
 interface CharacterCardProps {
   character: CharacterCardFragment;
