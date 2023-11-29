@@ -3,15 +3,23 @@ import * as Types from '../../../shared/types/gql/types';
 import { gql } from '@apollo/client';
 import * as Apollo from '@apollo/client';
 const defaultOptions = {} as const;
-export type GetCharactersQueryVariables = Types.Exact<{ [key: string]: never; }>;
+export type GetCharactersQueryVariables = Types.Exact<{
+  page?: Types.InputMaybe<Types.Scalars['Int']['input']>;
+}>;
 
 
-export type GetCharactersQuery = { __typename?: 'Query', characters?: { __typename?: 'Characters', results?: Array<{ __typename?: 'Character', id?: string | null, name?: string | null, image?: string | null, created?: string | null } | null> | null } | null };
+export type GetCharactersQuery = { __typename?: 'Query', characters?: { __typename?: 'Characters', info?: { __typename?: 'Info', count?: number | null, pages?: number | null, next?: number | null, prev?: number | null } | null, results?: Array<{ __typename?: 'Character', id?: string | null, name?: string | null, image?: string | null, created?: string | null } | null> | null } | null };
 
 
 export const GetCharactersDocument = gql`
-    query getCharacters {
-  characters {
+    query getCharacters($page: Int) {
+  characters(page: $page) {
+    info {
+      count
+      pages
+      next
+      prev
+    }
     results {
       id
       name
@@ -34,6 +42,7 @@ export const GetCharactersDocument = gql`
  * @example
  * const { data, loading, error } = useGetCharactersQuery({
  *   variables: {
+ *      page: // value for 'page'
  *   },
  * });
  */
