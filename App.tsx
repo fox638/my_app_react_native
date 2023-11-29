@@ -18,6 +18,7 @@ import {
   useColorScheme,
   View,
 } from 'react-native';
+import styled from 'styled-components/native';
 
 import {
   Colors,
@@ -73,7 +74,7 @@ const App = () => {
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
-        <Header />
+        <TestText>Test</TestText>
         <View
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
