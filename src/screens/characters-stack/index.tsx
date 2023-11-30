@@ -4,7 +4,6 @@ import CharactersListScreen from './CharactersListScreen';
 
 type CharactersStackScreens = {
   list: undefined;
-  details: undefined;
 };
 
 const Stack = createNativeStackNavigator<CharactersStackScreens>();

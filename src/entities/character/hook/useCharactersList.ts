@@ -5,7 +5,7 @@ import useEvent from '@shared/lib/hook/useEvent';
 export function useCharactersList() {
   const {current} = useRef({fetchMore: false});
   const [fetchMoreLoading, setFetchMoreLoading] = useState(false);
-  const {data, loading, fetchMore, refetch} = useGetCharactersQuery({
+  const {data, loading, fetchMore, refetch, error} = useGetCharactersQuery({
     variables: {page: 1},
   });
 
@@ -52,6 +52,7 @@ export function useCharactersList() {
     fetchMoreLoading,
     characters,
     hasNextPage,
+    error,
     handleRefresh,
     handleLoadMore,
   };

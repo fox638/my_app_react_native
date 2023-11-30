@@ -2,7 +2,7 @@ import React from 'react';
 import * as S from './CharactersListScreen.styled';
 import {CharacterCard, useCharactersList} from '@entities/character';
 import {FlatList} from 'react-native';
-import {EndList, ItemsLoading, ScreenSkeleton} from './ui';
+import {EndList, ErrorState, ItemsLoading, ScreenSkeleton} from './ui';
 
 interface CharactersListScreenProps {}
 
@@ -12,6 +12,7 @@ export const CharactersListScreen: React.FC<
   const {
     loading,
     fetchMoreLoading,
+    error,
     handleLoadMore,
     handleRefresh,
     characters,
@@ -20,6 +21,9 @@ export const CharactersListScreen: React.FC<
 
   if (loading) {
     return <ScreenSkeleton />;
+  }
+  if (error) {
+    return <ErrorState reload={handleRefresh} />;
   }
 
   return (
