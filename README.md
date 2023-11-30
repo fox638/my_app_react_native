@@ -2,7 +2,7 @@
 
 Demonstration of working with FlatList and GraphQL API.
 
-## Runn App
+## Run App
 
 To run app
 
