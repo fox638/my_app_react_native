@@ -1,7 +1,7 @@
 import styled, {css} from 'styled-components/native';
 import FastImage from 'react-native-fast-image';
 
-export const Container = styled.View`
+export const Container = styled.TouchableOpacity`
   ${({theme}) => css`
     border: 1px solid ${theme.colors.primaryDark};
     border-radius: 10px;
